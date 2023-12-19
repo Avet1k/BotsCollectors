@@ -37,7 +37,7 @@ public class MineralSpawner : MonoBehaviour
                     Random.Range(0, fullRotate),
                     Random.Range(0, fullRotate)));
             
-            newMineral.transform.parent = _ground.transform;
+            newMineral.transform.parent = transform;
         }
     }
 

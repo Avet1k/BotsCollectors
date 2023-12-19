@@ -13,7 +13,7 @@ public class Scanner : MonoBehaviour
     private float _rad;
     private Base _base;
     
-    public event UnityAction MineralFound;
+    public event UnityAction<Mineral> MineralFound;
     
     private void OnEnable()
     {
@@ -47,10 +47,10 @@ public class Scanner : MonoBehaviour
             Physics.Raycast(_base.transform.position, direction, out hitInfo, _distance);
             Debug.DrawRay(_base.transform.position, direction, Color.red, 0.1f);
 
-            if (hitInfo.transform is not null && hitInfo.transform.TryGetComponent(out Mineral _))
+            if (hitInfo.transform is not null && hitInfo.transform.TryGetComponent(out Mineral mineral))
             {
                 Debug.Log("Found Mineral!");
-                MineralFound?.Invoke();
+                MineralFound?.Invoke(mineral);
             }
         }
     }
