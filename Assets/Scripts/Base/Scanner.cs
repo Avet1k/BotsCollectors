@@ -49,7 +49,6 @@ public class Scanner : MonoBehaviour
 
             if (hitInfo.transform is not null && hitInfo.transform.TryGetComponent(out Mineral mineral))
             {
-                Debug.Log("Found Mineral!");
                 MineralFound?.Invoke(mineral);
             }
         }
